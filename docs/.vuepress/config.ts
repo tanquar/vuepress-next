@@ -57,6 +57,11 @@ export default defineUserConfig<DefaultThemeOptions>({
       title: 'VuePress',
       description: 'Vue-powered Static Site Generator',
     },
+    '/ja/': {
+      lang: 'ja-JP',
+      title: 'VuePress',
+      description: 'Vueベースの静的サイトジェネレーター',
+    },
     '/zh/': {
       lang: 'zh-CN',
       title: 'VuePress',
@@ -94,6 +99,44 @@ export default defineUserConfig<DefaultThemeOptions>({
 
         // page meta
         editLinkText: 'Edit this page on GitHub',
+      },
+
+      /**
+       * Japanese locale config
+       */
+      '/ja/': {
+        // navbar
+        navbar: navbar.ja,
+        selectLanguageName: '日本語',
+        selectLanguageText: '言語を選択',
+        selectLanguageAriaLabel: '言語選択',
+
+        // sidebar
+        sidebar: sidebar.ja,
+
+        // page meta
+        editLinkText: 'GitHubでこのページを編集',
+        lastUpdatedText: '最新の更新',
+        contributorsText: '貢献者',
+
+        // custom containers
+        tip: 'ヒント',
+        warning: '注意',
+        danger: '警告',
+
+        // 404 page
+        notFound: [
+          'おっと、ここには何もありません',
+          '行き先が違うようです',
+          'ここは404のページです',
+          'リンク先が間違っていたようです',
+        ],
+        backToHome: 'トップページに戻る',
+
+        // a11y
+        openInNewWindow: '新しいウィンドウで表示',
+        toggleDarkMode: 'ナイトモードの切り替え',
+        toggleSidebar: 'サイドバーの切り替え',
       },
 
       /**
@@ -162,6 +205,9 @@ export default defineUserConfig<DefaultThemeOptions>({
           facetFilters: ['tags:v2'],
         },
         locales: {
+          '/ja/': {
+            placeholder: 'ドキュメントを検索',
+          },
           '/zh/': {
             placeholder: '搜索文档',
           },
