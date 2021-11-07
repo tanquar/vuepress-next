@@ -4,7 +4,7 @@ sidebar: auto
 
 # 貢献ガイド
 
-## Overview
+## 概要
 
 このリポジトリは、[クラシックのYarn Workspace](https://classic.yarnpkg.com/en/docs/workspaces)を使った[Monorepo](https://en.wikipedia.org/wiki/Monorepo)構成で提供しています。`packages`ディレクトリには、独立した以下の関連パッケージを収録しています。
 
@@ -34,7 +34,7 @@ sidebar: auto
 
 事前に用意するもの
 
-- [Node.js](http://nodejs.org) **version 12+**
+- [Node.js](http://nodejs.org)**バージョン12以降**
 - [Yarn v1 (クラシック)](https://classic.yarnpkg.com/en/docs/install)
 
 リポジトリをクローンして、依存関係をインストールします。
@@ -43,7 +43,7 @@ sidebar: auto
 yarn
 ```
 
-Start watching source files:
+ソースファイルの監視を開始します。
 
 ```bash
 yarn dev
