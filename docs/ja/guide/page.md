@@ -19,12 +19,12 @@ VuePressで中心になるものは、Markdownです。プロジェクト内にM
 
 `vuepress dev docs`のようなコマンドを実行すると、`docs`ディレクトリが[sourceDir](../reference/cli.md)として扱われます。このとき、各Markdownファイルのルートパスは以下のように定まります。
 
-相対パス | ルートパス
---- | ---
-`/README.md` | `/`
-`/contributing.md` | `/contributing.html`
-`/guide/README.md` | `/guide/`
-`/guide/page.md` | `/guide/page.html`
+|   相対パス          |      ルートパス        |
+|--------------------|----------------------|
+| `/README.md`       | `/`                  |
+| `/contributing.md` | `/contributing.html` |
+| `/guide/README.md` | `/guide/`            |
+| `/guide/page.md`   | `/guide/page.html`   |
 
 ## フロントマター
 
@@ -42,12 +42,14 @@ description: これはページの説明です
 
 VuePressのフロントマターでは、いくつかの組み込みのフィールドも利用できます。また、テーマによっては独自のフロントマターを備えている場合があります。
 
-::: tip<br>VuePressに組み込まれているすべてのフロントマターの一覧は、参考資料の[フロントマター](../reference/frontmatter.md)で確認してみてください。
+::: tip
+VuePressに組み込まれているすべてのフロントマターの一覧は、参考資料の[フロントマター](../reference/frontmatter.md)で確認してみてください。
 
-デフォルトのテーマのフロントマターについては、参考資料の[デフォルトのテーマ &gt; フロントマター](../reference/default-theme/frontmatter.md)を確認してください。<br>:::
+デフォルトのテーマのフロントマターについては、参考資料の[デフォルトのテーマ &gt; フロントマター](../reference/default-theme/frontmatter.md)を確認してください。
+:::
 
 ## コンテンツ
 
-ページのメインコンテンツは、Markdownで記述します。VuePressは、それをまずHTMLコードに変換し、さらにVue SFCの`<template>`として扱います。
+ページのメインコンテンツは、Markdownで記述します。VuePressは、それをまずHTMLコードに変換し、さらにそれをVue SFCの`<template>`として扱います。
 
-シンプルなMarkdownを大幅に拡張したい場合は、[markdown-it](https://github.com/markdown-it/markdown-it)の力と、Vueのテンプレート構文の力を借ることができます。次は、VuePressのMarkdownの全般的な拡張機能について[Markdown](./markdown.md)ガイドで確認しましょう。
+シンプルなMarkdownを大幅に拡張したい場合は、[markdown-it](https://github.com/markdown-it/markdown-it)の力と、Vueのテンプレート構文の力を借りることができます。次は、VuePressのMarkdownの全般的な拡張機能について、[「ガイド > Markdown」で確認しましょう](./markdown.md)。
