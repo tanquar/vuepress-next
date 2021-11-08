@@ -15,9 +15,8 @@
 
 VuePressのサイトを設定するために欠かせないファイルは`.vuepress/config.js`で、JavaScriptのオブジェクトをエクスポートする形式にする必要があります。TypeScriptを使用する場合は代わりに`.vuepress/config.ts`を置くと、VuePressの設定に合った型のヒントを得ることができます。
 
-<codegroup>
-  <codegroupitem title="JS" active>
-</codegroupitem></codegroup>
+<CodeGroup>
+  <CodeGroupItem title="JS" active>
 
 ```js
 module.exports = {
@@ -31,12 +30,9 @@ module.exports = {
 }
 ```
 
-  
+  </CodeGroupItem>
 
-
-  <codegroupitem title="TS">
-</codegroupitem>
-
+  <CodeGroupItem title="TS">
 
 ```ts
 import { defineUserConfig } from 'vuepress'
@@ -53,13 +49,15 @@ export default defineUserConfig<DefaultThemeOptions>({
 })
 ```
 
-  
+  </CodeGroupItem>
+</CodeGroup>
 
 
+::: tip
+設定用のオブジェクトを、**VuePress設定**と呼びます。
+:::
 
-::: tip<br>設定用のオブジェクトを、**VuePress設定**と呼びます。<br>:::
-
-## 設定のスコープ
+## 設定の有効範囲
 
 VuePressの設定には`themeConfig`という項目があることにお気づきだと思います。
 
@@ -71,7 +69,9 @@ VuePressの設定には`themeConfig`という項目があることにお気づ�
 
 よく知られるように、あらゆるサイトには`lang`、`title`、`description`などのサイト固有の属性があります。VuePressは、これらの属性をビルトインでサポートします。
 
-::: tip<br>サイト設定のすべての項目については、[設定リファレンス](../reference/config.md)を参照してください。<br>:::
+::: tip
+サイト設定のすべての項目については、参考資料から[設定](../reference/config.md)を参照してください。
+:::
 
 ### テーマ設定
 
@@ -79,4 +79,6 @@ VuePressの設定には`themeConfig`という項目があることにお気づ�
 
 VuePress設定で`theme`オプションを指定しない場合、デフォルトのテーマが使用されます。
 
-::: tip<br>デフォルトのテーマのテーマ設定については、[デフォルトのテーマ &gt; 設定リファレンス](../reference/default-theme/config.md)を参照してください。<br>:::
+::: tip
+デフォルトのテーマのテーマ設定については、参考資料から[デフォルトのテーマ &gt; 設定](../reference/default-theme/config.md)を参照してください。
+:::
