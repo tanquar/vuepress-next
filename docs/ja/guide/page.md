@@ -1,12 +1,12 @@
 # ページ
 
-VuePress is markdown-centered. Each markdown file inside your project is a standalone page.
+VuePressで中心になるものは、Markdownです。プロジェクト内にMarkdownファイルを置くと、それぞれが独立したページを形成します。
 
 ## ルーティング
 
-By default, the route path of a page is determined by the relative path of your markdown file.
+デフォルトでは、あるページの場所を示すルートパスは、Markdownファイルの相対パスによって決まります。
 
-Assuming this is the directory structure of your markdown files:
+以下のようなディレクトリ構造でMarkdownファイルが配置されているとします。
 
 ```
 └─ docs
@@ -17,7 +17,7 @@ Assuming this is the directory structure of your markdown files:
    └─ README.md
 ```
 
-Take the `docs` directory as your [sourceDir](../reference/cli.md), e.g. you are running `vuepress dev docs` command. Then the route paths of your markdown files would be:
+`vuepress dev docs`のようなコマンドを実行すると、`docs`ディレクトリが[sourceDir](../reference/cli.md)として扱われます。このとき、各Markdownファイルのルートパスは以下のように定まります。
 
 相対パス | ルートパス
 --- | ---
@@ -26,28 +26,28 @@ Take the `docs` directory as your [sourceDir](../reference/cli.md), e.g. you are
 `/guide/README.md` | `/guide/`
 `/guide/page.md` | `/guide/page.html`
 
-## Frontmatter
+## フロントマター
 
-A markdown file could contain a [YAML](https://yaml.org/) frontmatter. The frontmatter must be at the top of the Markdown file and must be wrapped with a couple of triple-dashed lines. Here is a basic example:
+Markdownファイルにはフロントマターを含めることができます。フロントマターは[YAML](https://yaml.org/)で記述し、上下を3連続のハイフンで囲ってMarkdownファイルの先頭に置く必要があります。簡単な例を下に示します。
 
 ```md
 ---
-lang: en-US
-title: Title of this page
-description: Description of this page
+lang: ja-JP
+title: これはページのタイトルです
+description: これはページの説明です
 ---
 ```
 
-You must have noticed that those fields are similar with the [Site Config](./configuration.md#site-config) in the [Config File](./configuration.md#config-file). You can override `lang`, `title`, `description`, etc., of current page via frontmatter. So you can take frontmatter as page scope config.
+フィールドが[設定ファイル](./configuration.md#site-config)の[サイト設定](./configuration.md#config-file)によく似ていることに気付いたでしょうか。フロントマターを使うと、そのページの`lang`、`title`、`description`などを上書きすることができます。つまり、フロントマターを使用すると、ページを有効範囲とした設定を行うことができます。
 
-Also, VuePress has built-in support for some frontmatter fields, and your theme may have its own special frontmatter, too.
+VuePressのフロントマターでは、いくつかの組み込みのフィールドも利用できます。また、テーマによっては独自のフロントマターを備えている場合があります。
 
-::: tip Check out the [Frontmatter Reference](../reference/frontmatter.md) for a full list of VuePress built-in frontmatter.
+::: tip<br>VuePressに組み込まれているすべてのフロントマターの一覧は、参考資料の[フロントマター](../reference/frontmatter.md)で確認してみてください。
 
-Check out the [Default Theme &gt; Frontmatter Reference](../reference/default-theme/frontmatter.md) for the frontmatter of default theme. :::
+デフォルトのテーマのフロントマターについては、参考資料の[デフォルトのテーマ &gt; フロントマター](../reference/default-theme/frontmatter.md)を確認してください。<br>:::
 
 ## コンテンツ
 
-The main content of your page is written in Markdown. VuePress will firstly transform your Markdown to HTML code, then treat the HTML code as `<template>` of Vue SFC.
+ページのメインコンテンツは、Markdownで記述します。VuePressは、それをまずHTMLコードに変換し、さらにVue SFCの`<template>`として扱います。
 
-With the power of [markdown-it](https://github.com/markdown-it/markdown-it) and Vue template syntax, the basic Markdown can be extended a lot. Next, check out the [Markdown](./markdown.md) guide for all the extensions of Markdown in VuePress.
+シンプルなMarkdownを大幅に拡張したい場合は、[markdown-it](https://github.com/markdown-it/markdown-it)の力と、Vueのテンプレート構文の力を借ることができます。次は、VuePressのMarkdownの全般的な拡張機能について[Markdown](./markdown.md)ガイドで確認しましょう。
