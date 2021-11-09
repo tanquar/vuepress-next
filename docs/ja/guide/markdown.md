@@ -21,9 +21,11 @@ markdown-itは以下の埋め込みの構文に対応します。
 
 各セクションのヘッダーにマウスカーソルを合わせると、「`#`」というアンカーが表示されることに気付いたでしょうか。「`#`」のアンカーをクリックすると、そのセクションに直接ジャンプすることができます。
 
-::: tip<br>ヘッダーアンカーの拡張機能は、[markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)でサポートされています。
+::: tip
+ヘッダーアンカーの拡張機能は、[markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)でサポートされています。
 
-設定リファレンス：[markdown.anchor](../reference/config.md#markdown-anchor)<br>:::
+設定リファレンス：[markdown.anchor](../reference/config.md#markdown-anchor)
+:::
 
 ### リンク
 
@@ -64,20 +66,25 @@ Markdownの[リンク構文](https://spec.commonmark.org/0.29/#link-reference-de
   <RouterLink to="/reference/config.html">設定リファレンス</RouterLink>
   <RouterLink to="/guide/getting-started.html">はじめに</RouterLink>
   <RouterLink to="/guide/">ガイド</RouterLink>
-  <RouterLink to="/reference/config.html#links">設定リファレンス > markdown.links</RouterLink>
+  <RouterLink to="/reference/config.html#links">設定リファレンス &gt; markdown.links</RouterLink>
   <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub<OutboundLink/></a>
 </template>
 ```
 
 **レンダリング結果**
 
-[ホーム](../README.md)<br>[設定リファレンス](../reference/config.md)<br>[はじめに](./getting-started.md)<br>[ガイド](/guide/README.md)<br>[設定リファレンス&gt; markdown.links](/reference/config.md#links)<br>[GitHub](https://github.com)
+[ホーム](../README.md)
+[設定リファレンス](../reference/config.md)
+[はじめに](./getting-started.md)
+[ガイド](/guide/README.md)
+[設定リファレンス > markdown.links](/reference/config.md#links)
+[GitHub](https://github.com)
 
 **説明**
 
 - 内部リンクは、SPAのナビゲーションを実現する`<RouterLink>`に変換されます。
 - `.md`ファイルへの内部リンクは、[ページのルートパス](./page.md#routing)に変換されます。絶対パスと相対パスのどちらも利用できます。
-- 外部リンクには、`target="_blank" rel="noopener noreferrer"`の属性と、<outboundlink></outboundlink>のタグが付けられます。
+- 外部リンクには、`target="_blank" rel="noopener noreferrer"`の属性と、<OutboundLink />のタグが付けられます。
 
 **推奨事項**
 
@@ -87,11 +94,13 @@ Markdownの[リンク構文](https://spec.commonmark.org/0.29/#link-reference-de
 - 相対パスは異なるロケールでも一貫性を持ちます。コンテンツを翻訳するとき、ロケールごとにパスを変更する必要がありません。
 - 絶対パスを使用すると、サイトの[base](../reference/config.md#base)の設定が`"/"`と異なる場合に、手動で`base`を追加するか、[baseヘルパー](./assets.md#base-helper)を使用する必要が生じます。
 
-::: tip<br>リンクの拡張機能は、組み込みのプラグインでサポートされています。
+::: tip
+リンクの拡張機能は、組み込みのプラグインでサポートされています。
 
 設定リファレンス：[markdown.links](../reference/config.md#markdown-links)
 
-合わせて参照：[組み込みコンポーネント&gt; OutboundLink](../reference/components.md#outboundlink)<br>:::
+合わせて参照：[組み込みコンポーネント&gt; OutboundLink](../reference/components.md#outboundlink)
+:::
 
 ### 絵文字 :tada:
 
@@ -102,16 +111,18 @@ Markdownコンテンツには、`:EMOJICODE:`と入力することで絵文字�
 **入力**
 
 ```md
-VuePress 2がリリースされました:tada:!
+VuePress 2がリリースされました:tada:
 ```
 
 **出力**
 
-VuePress 2がリリースされました:tada:!
+VuePress 2がリリースされました:tada:
 
-::: tip<br>絵文字の拡張機能は[markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji)でサポートされています。
+::: tip
+絵文字の拡張機能は[markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji)でサポートされています。
 
-設定リファレンス：[markdown.emoji](../reference/config.md#markdown-emoji)<br>:::
+設定リファレンス：[markdown.emoji](../reference/config.md#markdown-emoji)
+:::
 
 ### 目次構文
 
@@ -129,9 +140,11 @@ VuePress 2がリリースされました:tada:!
 
 目次に含まれる各ヘッダーは、対応する[ヘッダーアンカー](#header-anchors)にリンクします。そのため、ヘッダーアンカーを無効にすると目次が適切に機能しません。
 
-::: tip<br>目次の拡張機能は、[markdown-it-toc-done-right](https://github.com/nagaozen/markdown-it-toc-done-right)からフォークされて変更が加えられた組み込みのプラグインによってサポートされています。
+::: tip
+目次の拡張機能は、[markdown-it-toc-done-right](https://github.com/nagaozen/markdown-it-toc-done-right)からフォークされて変更が加えられた組み込みのプラグインによってサポートされています。
 
-設定リファレンス：[markdown.toc](../reference/config.md#markdown-toc)<br>:::
+設定リファレンス：[markdown.toc](../reference/config.md#markdown-toc)
+:::
 
 ### コードブロック
 
@@ -143,7 +156,7 @@ VuePress 2がリリースされました:tada:!
 
 **入力**
 
-```md
+````md
 ```ts{1,6-8}
 import type { UserConfig } from '@vuepress/cli'
 
@@ -155,7 +168,7 @@ export const config: UserConfig = {
   },
 }
 ```
-```
+````
 
 **出力**
 
@@ -177,9 +190,11 @@ export const config: UserConfig = {
 - 複数の単一行：`{4,7,9}`
 - これらの組み合わせ：`{4,7-13,16,23-27,40}`
 
-::: tip<br>行のハイライトの拡張機能は、[markdown-it-highlight-lines](https://github.com/egoist/markdown-it-highlight-lines)からフォークされて変更が加えられた組み込みのプラグインによってサポートされています。
+::: tip
+行のハイライトの拡張機能は、[markdown-it-highlight-lines](https://github.com/egoist/markdown-it-highlight-lines)からフォークされて変更が加えられた組み込みのプラグインによってサポートされています。
 
-設定リファレンス：[markdown.code.highlightLines](../reference/config.md#markdown-code-highlightlines)<br>:::
+設定リファレンス：[markdown.code.highlightLines](../reference/config.md#markdown-code-highlightlines)
+:::
 
 #### 行番号
 
@@ -189,7 +204,7 @@ export const config: UserConfig = {
 
 **入力**
 
-```md
+````md
 ```ts
 // デフォルトでは行番号が有効
 const line2 = 'This is line 2'
@@ -201,7 +216,7 @@ const line3 = 'This is line 3'
 const line2 = 'This is line 2'
 const line3 = 'This is line 3'
 ```
-```
+````
 
 **出力**
 
@@ -217,9 +232,11 @@ const line2 = 'This is line 2'
 const line3 = 'This is line 3'
 ```
 
-::: tip<br>行番号の拡張機能は、組み込みのプラグインでサポートされています。
+::: tip
+行番号の拡張機能は、組み込みのプラグインでサポートされています。
 
-設定リファレンス：[markdown.code.lineNumbers](../reference/config.md#markdown-code-linenumbers)<br>:::
+設定リファレンス：[markdown.code.lineNumbers](../reference/config.md#markdown-code-linenumbers)
+:::
 
 #### v-preによるラップ
 
@@ -229,13 +246,15 @@ const line3 = 'This is line 3'
 
 `:v-pre` / `:no-v-pre`の指定をコードブロックの囲みに追加することで、設定の値を上書きすることができます。
 
-::: warning<br>二重の波括弧を使う「Mustache」構文など、テンプレート構文の文字には構文ハイライトの解析が先に適用されてしまうことがあります。その場合、以下の例のように`:no-v-pre`を追加しても、言語によってはVueのコンパイルがうまく機能しません。
+::: warning
+二重の波括弧を使う「Mustache」構文など、テンプレート構文の文字には構文ハイライトの解析が先に適用されてしまうことがあります。その場合、以下の例のように`:no-v-pre`を追加しても、言語によってはVueのコンパイルがうまく機能しません。
 
-そのような言語でもVueのコンパイルを機能させたい場合は、デフォルトの構文ハイライトを無効にして、クライアント側に独自の構文ハイライトを組み込むことを検討してください。<br>:::
+そのような言語でもVueのコンパイルを機能させたい場合は、デフォルトの構文ハイライトを無効にして、クライアント側に独自の構文ハイライトを組み込むことを検討してください。
+:::
 
 **入力**
 
-```md
+````md
 ```md
 <!-- これはデフォルトでそのまま保たれる -->
 1 + 2 + 3 = {{ 1 + 2 + 3 }}
@@ -250,7 +269,7 @@ const line3 = 'This is line 3'
 // JavaScriptの構文ハイライトが適用され、Vueのコンパイルが機能しない
 const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 ```
-```
+````
 
 **出力**
 
@@ -274,9 +293,11 @@ not actually using :no-v-pre here, just as an example of incorrect usage
 const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 ```
 
-::: tip<br>v-preの拡張機能は、組み込みのプラグインでサポートされています。
+::: tip
+v-preの拡張機能は、組み込みのプラグインでサポートされています。
 
-設定リファレンス：[markdown.code.vPre](../reference/config.md#markdown-vpre)<br>:::
+設定リファレンス：[markdown.code.vPre](../reference/config.md#markdown-vpre)
+:::
 
 ### コードブロックのインポート
 
@@ -294,7 +315,7 @@ const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 @[code{1-10}](../foo.js)
 ```
 
-コードの言語はファイルの拡張子から推測されますが、明示的に指定することが推奨されます。
+コードの言語はファイルの拡張子から推測されますが、以下のように明示的に指定することが推奨されます。
 
 ```md
 <!-- コードの言語を指定する -->
@@ -311,8 +332,8 @@ const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 複合的な例を以下に示します。
 
 - `'../foo.js'`というファイルの3行目〜10行目をインポートします。
-- 言語は`'js'`と指定します。
-- インポートされたコードの3行目、つまりファイル`'../foo.js'`の5行目をハイライトします。
+- 言語には`'js'`を指定します。
+- インポートされたコードの3行目、つまり`'../foo.js'`ファイルの5行目をハイライトします。
 - 行番号を無効にします。
 
 ```md
@@ -337,15 +358,17 @@ module.exports = {
 @[code](@src/foo.js)
 ```
 
-::: tip<br>コードインポートの拡張機能は、組み込みのプラグインでサポートされています。
+::: tip
+コードインポートの拡張機能は、組み込みのプラグインでサポートされています。
 
-設定リファレンス： [markdown.importCode](../reference/config.md#markdown-importcode) :::
+設定リファレンス：[markdown.importCode](../reference/config.md#markdown-importcode)
+:::
 
 ## Markdownの中でVueを使用する
 
 このセクションでは、Markdown内でのVueの基本的な使用方法をいくつか紹介します。
 
-詳細については、[クックブック &gt; MarkdownとVueのSFC](../advanced/cookbook/markdown-and-vue-sfc.md)を参照してください。
+詳細については、[クックブック > MarkdownとVueのSFC](../advanced/cookbook/markdown-and-vue-sfc.md)を参照してください。
 
 ### テンプレート構文
 
@@ -368,7 +391,7 @@ module.exports = {
 
 1たす1は、{{1 + 1}}。
 
-<span v-for="i in 3">span: {{i}}</span>
+<span v-for="i in 3"> span: {{ i }} </span>
 
 ### コンポーネント
 
@@ -382,17 +405,19 @@ Markdownの中でVueコンポーネントを直接使用できます。
 
 **出力**
 
-これはデフォルトのテーマの`<Badge />`という組み込みコンポーネントです：<badge text="demo"></badge>
+これはデフォルトのテーマの`<Badge />`という組み込みコンポーネントです：<Badge text="サンプル" />
 
-::: tip<br>組み込みコンポーネントの全体リストについては、[組み込みコンポーネント](../reference/components.md)を参照してください。
+::: tip
+組み込みコンポーネントの全体リストについては、[組み込みコンポーネント](../reference/components.md)を参照してください。
 
-デフォルトのテーマによって提供される組み込みコンポーネントの全体リストについては、 [デフォルトのテーマ &gt; 組み込みコンポーネント](../reference/default-theme/components.md)を参照してください。<br>:::
+デフォルトのテーマによって提供される組み込みコンポーネントの全体リストについては、[デフォルトのテーマ > 組み込みコンポーネント](../reference/default-theme/components.md)を参照してください。
+:::
 
 ## 注意
 
 ### 非推奨のHTMLタグ
 
-[&lt;center&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center)や[&lt;font&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font)などのHTMLタグは非推奨とされ、デフォルトではVuePressのMarkdownの中で使うことができません。
+[\<center>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center)や[\<font>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font)などのHTMLタグは非推奨とされ、デフォルトではVuePressのMarkdownの中で使うことができません。
 
 Vueのテンプレートコンパイラは、これらのタグをネイティブのHTMLタグとして認識せず、代わりにVueコンポーネントとして解決しようと試みます。しかし、結果として通常これらのコンポーネントは存在しません。
 
@@ -400,5 +425,5 @@ Vueのテンプレートコンパイラは、これらのタグをネイティ�
 
 - [v-pre](https://v3.vuejs.org/api/directives.html#v-pre)ディレクティブを追加して、これらのタグの要素とその子のコンパイルをスキップします。ただし、テンプレート構文も無効になることに注意する必要があります。
 - [compilerOptions.isCustomElement](https://v3.vuejs.org/api/application-config.html#compileroptions)を設定して、Vueのテンプレートコンパイラがこれらのタグをコンポーネントとして解決しないように指示します。
-    - `@bundler-webpack`では、[vue.compilerOptions](../reference/bundler/webpack.md#vue)で設定します
-    - `@bundler-vite`では、[vuePluginOptions.template.compilerOptions](../reference/bundler/vite.md#vuepluginoptions)で設定します
+  - `@bundler-webpack`では、[vue.compilerOptions](../reference/bundler/webpack.md#vue)で設定します
+  - `@bundler-vite`では、[vuePluginOptions.template.compilerOptions](../reference/bundler/vite.md#vuepluginoptions)で設定します
