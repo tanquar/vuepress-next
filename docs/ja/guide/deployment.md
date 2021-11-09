@@ -1,9 +1,9 @@
 # デプロイ
 
-このガイドは、以下の前提があるものとして進めます。
+このガイドは、以下のことを前提として進めます。
 
 - Markdownのソースファイルは、プロジェクトの`docs`ディレクトリ内に配置する。
-- ビルドの出力場所には、デフォルトの場所(`.vuepress/dist`)を使用する。
+- ビルドの出力場所には、デフォルトの場所 (`.vuepress/dist`) を使用する。
 - パッケージマネージャーに[Yarn (クラシック)](https://classic.yarnpkg.com/en/)を使用する (当然npmを使用してもよい)。
 - VuePressをプロジェクトのローカルの依存関係としてインストールし、`package.json`に以下のスクリプトを設定している。
 
@@ -192,9 +192,9 @@ heroku login
 
 ## Netlify
 
-1. [Netlify](https://netlify.com)で、以下の設定でGitHubからの新規プロジェクトを立ち上げます。
+1. [Netlify](https://netlify.com)で、以下の設定でGitHubからの新規プロジェクトを設定します。
 
-    - **Build Command:** `yarn docs:build`
+    - **Build command:** `yarn docs:build`
     - **Publish directory:** `docs/.vuepress/dist`
 
 2. [環境変数](https://docs.netlify.com/configure-builds/environment-variables)を設定し、Nodeのバージョンを選択します。
