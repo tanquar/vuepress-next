@@ -2,7 +2,7 @@
 
 このセクションは、すでにMarkdownについて詳しく知っていることを前提としています。もしまだ詳しく知らなければ、先に[Markdownチュートリアル](https://commonmark.org/help/)を確認することをおすすめします。
 
-## Syntax Extensions
+## 構文拡張
 
 VuePressでは、[構文拡張](https://github.com/markdown-it/markdown-it#syntax-extensions)をサポートする[markdown-it](https://github.com/markdown-it/markdown-it)の各種プラグインを使ってMarkdownコンテンツの解析が行われます。
 
@@ -17,7 +17,7 @@ markdown-itは以下の埋め込みの構文に対応します。
 - [テーブル](https://help.github.com/articles/organizing-information-with-tables/) (GFM)
 - [取り消し線](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text) (GFM)
 
-### Header Anchors
+### ヘッダーアンカー
 
 各セクションのヘッダーにマウスカーソルを合わせると、「`#`」というアンカーが表示されることに気付いたでしょうか。「`#`」のアンカーをクリックすると、そのセクションに直接ジャンプすることができます。
 
@@ -25,7 +25,7 @@ markdown-itは以下の埋め込みの構文に対応します。
 
 設定リファレンス：[markdown.anchor](../reference/config.md#markdown-anchor)<br>:::
 
-### Links
+### リンク
 
 Markdownの[リンク構文](https://spec.commonmark.org/0.29/#link-reference-definitions)を使用すると、VuePressによって変換が実行されます。
 
@@ -73,7 +73,7 @@ Markdownの[リンク構文](https://spec.commonmark.org/0.29/#link-reference-de
 
 [ホーム](../README.md)<br>[設定リファレンス](../reference/config.md)<br>[はじめに](./getting-started.md)<br>[ガイド](/guide/README.md)<br>[設定リファレンス&gt; markdown.links](/reference/config.md#links)<br>[GitHub](https://github.com)
 
-**Explanation**
+**説明**
 
 - 内部リンクは、SPAのナビゲーションを実現する`<RouterLink>`に変換されます。
 - `.md`ファイルへの内部リンクは、[ページのルートパス](./page.md#routing)に変換されます。絶対パスと相対パスのどちらも利用できます。
@@ -99,13 +99,13 @@ Markdownコンテンツには、`:EMOJICODE:`と入力することで絵文字�
 
 利用できる絵文字と対応するコードの全体リストは、[emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet)で確認できます。
 
-**Input**
+**入力**
 
 ```md
 VuePress 2がリリースされました:tada:!
 ```
 
-**Output**
+**出力**
 
 VuePress 2がリリースされました:tada:!
 
@@ -117,13 +117,13 @@ VuePress 2がリリースされました:tada:!
 
 現在のページの目次をMarkdownのコンテンツに配置するには、`[[toc]]`構文を使用します。
 
-**Input**
+**入力**
 
 ```md
 [[toc]]
 ```
 
-**Output**
+**出力**
 
 [[toc]]
 
@@ -133,7 +133,7 @@ VuePress 2がリリースされました:tada:!
 
 設定リファレンス：[markdown.toc](../reference/config.md#markdown-toc)<br>:::
 
-### Code Blocks
+### コードブロック
 
 以下のコードブロックの拡張は、Node側でMarkdownを解析する処理の中に組み込まれています。つまり、クライアント側ではコードブロックの処理が行われません。
 
@@ -141,7 +141,7 @@ VuePress 2がリリースされました:tada:!
 
 コードブロックに行範囲の指定を追加することで、コードブロックの特定の行だけをハイライトすることができます。
 
-**Input**
+**入力**
 
 ```md
 ```ts{1,6-8}
@@ -157,7 +157,7 @@ export const config: UserConfig = {
 ```
 ```
 
-**Output**
+**出力**
 
 ```ts{1,6-8}
 import type { UserConfig } from '@vuepress/cli'
@@ -181,13 +181,13 @@ export const config: UserConfig = {
 
 設定リファレンス：[markdown.code.highlightLines](../reference/config.md#markdown-code-highlightlines)<br>:::
 
-#### Line Numbers
+#### 行番号
 
 コードブロックの左側に行数が表示されていることに気付いたでしょうか。これはデフォルトで有効になっていて、設定で無効にすることができます。
 
 コードブロックに`:line-numbers`または`:no-line-numbers`の指定を追加すると、設定ファイルの値を上書きすることができます。
 
-**Input**
+**入力**
 
 ```md
 ```ts
@@ -203,7 +203,7 @@ const line3 = 'This is line 3'
 ```
 ```
 
-**Output**
+**出力**
 
 ```ts
 // デフォルトでは行番号が有効
@@ -233,7 +233,7 @@ const line3 = 'This is line 3'
 
 そのような言語でもVueのコンパイルを機能させたい場合は、デフォルトの構文ハイライトを無効にして、クライアント側に独自の構文ハイライトを組み込むことを検討してください。<br>:::
 
-**Input**
+**入力**
 
 ```md
 ```md
@@ -252,7 +252,7 @@ const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 ```
 ```
 
-**Output**
+**出力**
 
 ```md
 <!-- これはデフォルトでそのまま保たれる -->
@@ -278,7 +278,7 @@ const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 
 設定リファレンス：[markdown.code.vPre](../reference/config.md#markdown-vpre)<br>:::
 
-### Import Code Blocks
+### コードブロックのインポート
 
 次のようなコードインポート構文を使うと、ファイルからコードブロックをインポートできます。
 
@@ -347,7 +347,7 @@ module.exports = {
 
 詳細については、[クックブック &gt; MarkdownとVueのSFC](../advanced/cookbook/markdown-and-vue-sfc.md)を参照してください。
 
-### Template Syntax
+### テンプレート構文
 
 まず、以下の前提があります。
 
@@ -356,7 +356,7 @@ module.exports = {
 
 このことから、Markdownの中に[Vueのテンプレート構文](https://v3.vuejs.org/guide/template-syntax.html)を記述することができる、と分かります。
 
-**Input**
+**入力**
 
 ```md
 1たす1は、{{ 1 + 1 }}。
@@ -364,23 +364,23 @@ module.exports = {
 <span v-for="i in 3"> span: {{ i }} </span>
 ```
 
-**Output**
+**出力**
 
 1たす1は、{{1 + 1}}。
 
 <span v-for="i in 3">span: {{i}}</span>
 
-### Components
+### コンポーネント
 
 Markdownの中でVueコンポーネントを直接使用できます。
 
-**Input**
+**入力**
 
 ```md
 これはデフォルトのテーマの`<Badge />`という組み込みコンポーネントです：<Badge text="サンプル" />
 ```
 
-**Output**
+**出力**
 
 これはデフォルトのテーマの`<Badge />`という組み込みコンポーネントです：<badge text="demo"></badge>
 
@@ -390,7 +390,7 @@ Markdownの中でVueコンポーネントを直接使用できます。
 
 ## 注意
 
-### Deprecated HTML Tags
+### 非推奨のHTMLタグ
 
 [&lt;center&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center)や[&lt;font&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font)などのHTMLタグは非推奨とされ、デフォルトではVuePressのMarkdownの中で使うことができません。
 
