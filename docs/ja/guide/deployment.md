@@ -1,11 +1,11 @@
 # デプロイ
 
-このガイドは、以下のような一般的な前提に基づいて説明します。
+このガイドは、以下の前提があるものとして進めます。
 
-- Markdownのソースファイルを、プロジェクトの`docs`ディレクトリ内に配置している。
-- ビルドの出力場所には、デフォルトの場所(`.vuepress/dist`)を使用している。
-- パッケージマネージャーに[Yarn (クラシック)](https://classic.yarnpkg.com/en/)を使用している。npmもサポートされている。
-- VuePressがプロジェクトのローカルの依存関係としてインストールされていて、`package.json`に以下のスクリプトが設定されている。
+- Markdownのソースファイルは、プロジェクトの`docs`ディレクトリ内に配置する。
+- ビルドの出力場所には、デフォルトの場所(`.vuepress/dist`)を使用する。
+- パッケージマネージャーに[Yarn (クラシック)](https://classic.yarnpkg.com/en/)を使用する (当然npmを使用してもよい)。
+- VuePressをプロジェクトのローカルの依存関係としてインストールし、`package.json`に以下のスクリプトを設定している。
 
 ```json
 {
@@ -17,11 +17,11 @@
 
 ## GitHub Pages
 
-1. [base](../reference/config.md#base)を正しく設定します。
+1. [base](../reference/config.md#base)設定を正しく行います。
 
-    `https://<ユーザー名>.github.io/`にデプロイする場合、`base`がデフォルトで`"/"`になるため、このステップは省略できます。
+    `https://<ユーザー名>.github.io/`にデプロイする場合は`base`がデフォルトで`"/"`になるため、このステップは省略できます。
 
-    `https://<ユーザー名>.github.io/<レポジトリ>/`にデプロイする場合、例としてリポジトリが`https://github.com/<ユーザー名>/<レポジトリ>`にあれば、`base`を`"/<レポジトリ>/"`に設定します。
+    `https://<ユーザー名>.github.io/<レポジトリ>/`にデプロイする場合、例としてリポジトリが`https://github.com/<ユーザー名>/<レポジトリ>`であれば、`base`を`"/<レポジトリ>/"`にします。
 
 2. お好みのCIツールを選択します。ここでは例として[GitHub Actions](https://github.com/features/actions)を選択します。
 
@@ -48,14 +48,14 @@ jobs:
           # すべてのコミットをfetchして、最終更新時刻やその他のgitログの情報を取得する
           fetch-depth: 0
 
-      - name: Node.jsのセットアップ
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           # 使用するnode.jsのバージョンを選択する
           node-version: '14'
 
       # node_modulesをキャッシュする
-      - name: 依存関係のキャッシュ
+      - name: Cache dependencies
         uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -65,18 +65,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      # キャッシュがヒットしなかった場合に依存関係のインストールする
-      - name: 依存関係のインストール
+      # キャッシュがヒットしなかった場合に依存関係のインストールを行う
+      - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
       # ビルドスクリプトを実行する
-      - name: VuePressサイトのビルド
+      - name: Build VuePress site
         run: yarn docs:build
 
       # ワークフローの詳細は、ドキュメントを参照
       # @see https://github.com/crazy-max/ghaction-github-pages
-      - name: GitHub Pagesへのデプロイ
+      - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2
         with:
           # gh-pagesブランチにデプロイする
@@ -95,13 +95,13 @@ jobs:
 
 ## GitLab Pages
 
-1. [base](../reference/config.md#base)を正しく設定します。
+1. [base](../reference/config.md#base)設定を正しく行います。
 
-    `https://<ユーザー名>.gitlab.io/`にデプロイする場合、`base`がデフォルトで`"/"`になるため、このステップは省略できます。
+    `https://<ユーザー名>.gitlab.io/`にデプロイする場合は`base`がデフォルトで`"/"`になるため、このステップは省略できます。
 
-    `https://<ユーザー名>.gitlab.io/<レポジトリ>/`にデプロイする場合、例としてリポジトリが`https://gitlab.com/<ユーザー名>/<レポジトリ>`にあれば、`base`を`"/<レポジトリ>/"`に設定します。
+    `https://<ユーザー名>.gitlab.io/<レポジトリ>/`にデプロイする場合、例としてリポジトリが`https://gitlab.com/<ユーザー名>/<レポジトリ>`であれば、`base`を`"/<レポジトリ>/"`にします。
 
-2. [GitLab CI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)のワークフローを設定するため、`.gitlab-ci.yml`を作成します。
+2. `.gitlab-ci.yml`を作成して、[GitLab CI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)のワークフローを設定します。
 
 ::: details クリックして設定のサンプルを展開
 ```yaml
@@ -137,7 +137,7 @@ pages:
 
 1. [firebase-tools](https://www.npmjs.com/package/firebase-tools)がインストールされていることを確認します。
 
-2. プロジェクトのルートに、以下の内容で`firebase.json`と`.firebaserc`を作成します。
+2. プロジェクトのルートディレクトリに、以下の内容で`firebase.json`と`.firebaserc`を作成します。
 
 `firebase.json`:
 
@@ -178,7 +178,7 @@ pages:
 heroku login
 ```
 
-4. プロジェクトのルートに、以下の内容で`static.json`というファイルを作成します。
+4. プロジェクトのルートディレクトリに、以下の内容で`static.json`というファイルを作成します。
 
 `static.json`:
 
