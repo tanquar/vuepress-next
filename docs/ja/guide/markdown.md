@@ -99,10 +99,10 @@ Markdownの[リンク構文](https://spec.commonmark.org/0.29/#link-reference-de
 
 設定リファレンス：[markdown.links](../reference/config.md#markdown-links)
 
-合わせて参照：[組み込みコンポーネント&gt; OutboundLink](../reference/components.md#outboundlink)
+合わせて参照：[組み込みコンポーネント &gt; OutboundLink](../reference/components.md#outboundlink)
 :::
 
-### 絵文字 :tada:
+### 絵文字:tada:
 
 Markdownコンテンツには、`:EMOJICODE:`と入力することで絵文字を追加できます。
 
@@ -244,7 +244,7 @@ const line3 = 'This is line 3'
 
 コードブロックがVueによってコンパイルされるのを防ぐため、VuePressはデフォルトでコードブロックに[v-pre](https://v3.vuejs.org/api/directives.html#v-pre)ディレクティブを追加します。これは、設定で無効にすることができます。
 
-`:v-pre` / `:no-v-pre`の指定をコードブロックの囲みに追加することで、設定の値を上書きすることができます。
+`:v-pre`/`:no-v-pre`の指定をコードブロックの囲みに追加することで、設定の値を上書きすることができます。
 
 ::: warning
 二重の波括弧を使う「Mustache」構文など、テンプレート構文の文字には構文ハイライトの解析が先に適用されてしまうことがあります。その場合、以下の例のように`:no-v-pre`を追加しても、言語によってはVueのコンパイルがうまく機能しません。
