@@ -4,7 +4,7 @@
 
 - Markdownのソースファイルは、プロジェクトの`docs`ディレクトリ内に配置する。
 - ビルドの出力場所には、デフォルトの場所 (`.vuepress/dist`) を使用する。
-- パッケージマネージャーに[Yarn (クラシック)](https://classic.yarnpkg.com/en/)を使用する (当然npmを使用してもよい)。
+- パッケージマネージャーに[Yarn (クラシック)](https://classic.yarnpkg.com/en/)を使用する (もちろんnpmを使ってもよい)。
 - VuePressをプロジェクトのローカルの依存関係としてインストールし、`package.json`に以下のスクリプトを設定している。
 
 ```json
