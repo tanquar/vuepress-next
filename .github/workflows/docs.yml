@@ -1,56 +1,57 @@
 name: docs
 
 on:
+  # mainブランチへのプッシュでデプロイをトリガーする
   push:
-    branches:
-      - main
-    paths-ignore:
-      - '**/__tests__/**'
+    branches: [main]
+  # 手動でデプロイをトリガーする
   workflow_dispatch:
 
 jobs:
   docs:
     runs-on: ubuntu-latest
 
-    env:
-      DOCS_GA_ID: G-CTB8FQ7VMW
-      NODE_VERSION: '14'
-
     steps:
       - uses: actions/checkout@v2
         with:
+          # すべてのコミットをfetchして、最終更新時刻やその他のgitログの情報を取得する
           fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          # 使用するnode.jsのバージョンを選択する
+          node-version: '14'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Handle yarn cache
+      # node_modulesをキャッシュする
+      - name: Cache dependencies
         uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-
 
+      # キャッシュがヒットしなかった場合に依存関係のインストールを行う
       - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
-      - name: Build documentation site
-        run: yarn docs:release
+      # ビルドスクリプトを実行する
+      - name: Build VuePress site
+        run: yarn docs:build
 
+      # ワークフローの詳細は、ドキュメントを参照
+      # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.2.0
+        uses: crazy-max/ghaction-github-pages@v2
         with:
-          repo: vuepress/vuepress.github.io
-          target_branch: main
+          # gh-pagesブランチにデプロイする
+          target_branch: github_pages
+          # VuePressのデフォルトの出力ディレクトリにデプロイする
           build_dir: docs/.vuepress/dist
         env:
-          GH_PAT: ${{ secrets.GH_PAGES_TOKEN }}
+          # @see https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
