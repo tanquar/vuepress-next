@@ -24,7 +24,3 @@ See [Contributing Guide](https://github.com/vuepress/vuepress-next/blob/main/doc
 ## License
 
 [MIT](https://github.com/vuepress/vuepress-next/blob/main/LICENSE)
-
-## GitHub Pages
-
-https://tanquar.github.io/vuepress-next/
